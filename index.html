@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official Credential Verification</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f3f4f6; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .badge { background: #10b981; color: white; padding: 6px 14px; border-radius: 30px; font-weight: bold; font-size: 14px; display: inline-block; margin-bottom: 15px; }
+        .card { background: white; padding: 32px; border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); text-align: center; max-width: 380px; width: 90%; border-top: 6px solid #10b981; }
+        .field { margin: 16px 0; font-size: 15px; color: #4b5563; text-align: left; border-bottom: 1px solid #f3f4f6; padding-bottom: 8px; display: flex; justify-content: space-between; }
+        .val { font-weight: 600; color: #1f2937; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="badge">✓ VERIFIED OFFICIAL</div>
+        <h2 style="margin:0 0 10px 0; color:#111827;">Credential Validated</h2>
+        <p style="color:#6b7280; font-size:14px; margin-bottom:25px;">This certificate matches our official institutional records.</p>
+        
+        <div class="field">Recipient: <span class="val" id="name">...</span></div>
+        <div class="field">Course: <span class="val" id="course">...</span></div>
+        <div class="field">Issue Date: <span class="val" id="date">...</span></div>
+        <div class="field">ID Number: <span class="val" id="id">...</span></div>
+    </div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById('name').innerText = params.get('name') || 'Not Found';
+        document.getElementById('course').innerText = params.get('course') || 'Not Found';
+        document.getElementById('date').innerText = params.get('date') || 'Not Found';
+        document.getElementById('id').innerText = params.get('id') || 'Not Found';
+    </script>
+</body>
+</html>
