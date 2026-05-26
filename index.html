@@ -3,32 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Official Credential Verification</title>
+    <title>Govt License Verification</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f3f4f6; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .badge { background: #10b981; color: white; padding: 6px 14px; border-radius: 30px; font-weight: bold; font-size: 14px; display: inline-block; margin-bottom: 15px; }
-        .card { background: white; padding: 32px; border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); text-align: center; max-width: 380px; width: 90%; border-top: 6px solid #10b981; }
-        .field { margin: 16px 0; font-size: 15px; color: #4b5563; text-align: left; border-bottom: 1px solid #f3f4f6; padding-bottom: 8px; display: flex; justify-content: space-between; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f3f4f6; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
+        .card { background: white; padding: 32px; border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); text-align: center; max-width: 380px; width: 100%; border-top: 6px solid #10b981; }
+        .badge { background: #10b981; color: white; padding: 6px 14px; border-radius: 30px; font-weight: bold; font-size: 14px; display: inline-block; margin-bottom: 20px; }
+        .field { margin: 16px 0; font-size: 15px; color: #4b5563; text-align: left; border-bottom: 1px solid #f3f4f6; padding-bottom: 8px; display: flex; flex-direction: column; }
+        .label { font-size: 11px; text-transform: uppercase; color: #9ca3af; font-weight: bold; margin-bottom: 2px; }
         .val { font-weight: 600; color: #1f2937; }
     </style>
 </head>
 <body>
     <div class="card">
         <div class="badge">✓ VERIFIED OFFICIAL</div>
-        <h2 style="margin:0 0 10px 0; color:#111827;">Credential Validated</h2>
-        <p style="color:#6b7280; font-size:14px; margin-bottom:25px;">This certificate matches our official institutional records.</p>
+        <h2 style="margin:0 0 5px 0; color:#111827;">LG&CD Department</h2>
+        <p style="color:#6b7280; font-size:14px; margin-bottom:25px;">Punjab District Registry</p>
         
-        <div class="field">Recipient: <span class="val" id="name">...</span></div>
-        <div class="field">Course: <span class="val" id="course">...</span></div>
-        <div class="field">Issue Date: <span class="val" id="date">...</span></div>
-        <div class="field">ID Number: <span class="val" id="id">...</span></div>
+        <div class="field"><span class="label">License Holder</span><span class="val" id="name">...</span></div>
+        <div class="field"><span class="label">CNIC Number</span><span class="val" id="cnic">...</span></div>
+        <div class="field"><span class="label">License No</span><span class="val" id="lic">...</span></div>
+        <div class="field"><span class="label">Jurisdiction / UC</span><span class="val" id="uc">...</span></div>
+        <div class="field"><span class="label">Village / Area</span><span class="val" id="village">...</span></div>
+        <div class="field"><span class="label">Validity Dates</span><span class="val" id="valid">...</span></div>
     </div>
     <script>
         const params = new URLSearchParams(window.location.search);
-        document.getElementById('name').innerText = params.get('name') || 'Not Found';
-        document.getElementById('course').innerText = params.get('course') || 'Not Found';
-        document.getElementById('date').innerText = params.get('date') || 'Not Found';
-        document.getElementById('id').innerText = params.get('id') || 'Not Found';
+        function getParam(key) { return params.get(key) ? decodeURIComponent(params.get(key).replace(/\+/g, ' ')) : 'N/A'; }
+        document.getElementById('name').innerText = getParam('name');
+        document.getElementById('cnic').innerText = getParam('cnic');
+        document.getElementById('lic').innerText = getParam('lic');
+        document.getElementById('uc').innerText = getParam('uc');
+        document.getElementById('village').innerText = getParam('village');
+        document.getElementById('valid').innerText = getParam('valid');
     </script>
 </body>
 </html>
