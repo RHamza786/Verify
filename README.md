@@ -23,6 +23,7 @@
         <div class="field"><span class="label">CNIC Number</span><span class="val" id="cnic">...</span></div>
         <div class="field"><span class="label">License No</span><span class="val" id="lic">...</span></div>
         <div class="field"><span class="label">Jurisdiction</span><span class="val" id="uc">...</span></div>
+        <div class="field"><span class="label">Village / Area</span><span class="val" id="village">...</span></div>
         <div class="field"><span class="label">Validity</span><span class="val" id="valid">...</span></div>
     </div>
     <script>
@@ -32,6 +33,7 @@
         document.getElementById('cnic').innerText = getParam('cnic');
         document.getElementById('lic').innerText = getParam('lic');
         document.getElementById('uc').innerText = getParam('uc');
+        document.getElementById('village').innerText = getParam('village');
         document.getElementById('valid').innerText = getParam('valid');
     </script>
 </body>
